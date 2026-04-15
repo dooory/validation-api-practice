@@ -28,6 +28,10 @@ body {
     height: 100vh;
 }
 
+fieldset {
+    border: none;
+}
+
 .container {
     border-radius: 1rem;
     flex: 0 1 400px;
@@ -53,14 +57,13 @@ body {
             font-size: 1rem;
         }
 
-        .fields {
+        > fieldset {
             display: grid;
             gap: 1.5rem;
 
-            fieldset {
+            > fieldset {
                 display: grid;
                 gap: 0.75rem;
-                border: none;
                 padding: 0 1rem;
 
                 .field {
