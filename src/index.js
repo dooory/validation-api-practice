@@ -99,12 +99,18 @@ const validateConfirmPassword = (event) => {
     }
 };
 
-const validateCountry = (event) => {
-    const input = event.currentTarget;
+const validateCountry = () => {
+    const validity = countryInput.validity;
 
-    input.reportValidity();
+    if (countryInput.value === "placeholder") {
+        countryInput.setCustomValidity("Please select a country.");
+    } else {
+        countryInput.setCustomValidity("");
+    }
 
-    postcodeInput.disabled = false;
+    if (validity.valid) {
+        postcodeInput.disabled = false;
+    }
 };
 
 const validatePostCode = (event) => {
