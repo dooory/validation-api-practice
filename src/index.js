@@ -10,6 +10,7 @@ const formRequirements = {
 
 const emailInput = document.getElementById("email");
 const passwordInput = document.getElementById("password");
+const confirmPasswordInput = document.getElementById("confirmPassword");
 
 const validateEmail = (event) => {
     const input = event.currentTarget;
@@ -80,5 +81,20 @@ const validatePassword = (event) => {
     }
 };
 
+const validateConfirmPassword = (event) => {
+    const input = event.currentTarget;
+    const value = input.value;
+    const passwordValue = passwordInput.value;
+
+    input.reportValidity();
+
+    if (value !== passwordValue) {
+        input.setCustomValidity("Passwords do not match.");
+    } else {
+        input.setCustomValidity("");
+    }
+};
+
 emailInput.addEventListener("input", validateEmail);
 passwordInput.addEventListener("input", validatePassword);
+confirmPasswordInput.addEventListener("input", validateConfirmPassword);
