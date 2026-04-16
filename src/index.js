@@ -17,4 +17,4 @@ const validateEmail = (event) => {
     }
 };
 
-emailInput.addEventListener("blur", validateEmail);
+emailInput.addEventListener("input", validateEmail);
