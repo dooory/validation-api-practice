@@ -12,38 +12,50 @@
                 <fieldset>
                     <fieldset>
                         <div class="field">
-                            <label for="email">Email</label>
-                            <input type="email" name="email" id="email" />
+                            <label for="email">Email *</label>
+                            <input
+                                type="email"
+                                name="email"
+                                id="email"
+                                required
+                            />
                         </div>
                         <div class="field">
-                            <label for="password">Password</label>
+                            <label for="password">Password *</label>
                             <input
                                 type="password"
                                 name="password"
                                 id="password"
                                 autocomplete="off"
+                                required
                             />
                         </div>
                         <div class="field">
                             <label for="confirmPassword"
-                                >Confirm Password</label
+                                >Confirm Password *</label
                             >
                             <input
                                 type="password"
                                 name="confirm-password"
                                 id="confirmPassword"
                                 autocomplete="off"
+                                required
                             />
                         </div>
                     </fieldset>
                     <fieldset>
                         <div class="field">
-                            <label for="postcode">Postcode</label>
-                            <input type="text" name="postcode" id="postcode" />
+                            <label for="postcode">Postcode *</label>
+                            <input
+                                type="text"
+                                name="postcode"
+                                id="postcode"
+                                required
+                            />
                         </div>
                         <div class="field">
-                            <label for="country">Country</label>
-                            <select name="country" id="country">
+                            <label for="country">Country *</label>
+                            <select name="country" id="country" required>
                                 <option value="exp">Example Country</option>
                             </select>
                         </div>
