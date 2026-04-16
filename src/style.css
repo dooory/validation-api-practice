@@ -91,10 +91,12 @@ fieldset {
                             border-color: var(--c-green);
                             outline-color: var(--c-green);
                         }
+                    }
 
-                        &:valid {
-                            border-color: var(--c-green);
-                            outline-color: var(--c-green);
+                    select {
+                        &:invalid {
+                            border-color: var(--c-red);
+                            outline-color: var(--c-red);
                         }
                     }
 
