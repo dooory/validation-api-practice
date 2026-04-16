@@ -84,10 +84,12 @@ fieldset {
 
                         &:user-invalid {
                             border-color: var(--c-red);
+                            outline-color: var(--c-red);
                         }
 
                         &:user-valid {
                             border-color: var(--c-green);
+                            outline-color: var(--c-green);
                         }
                     }
                 }
