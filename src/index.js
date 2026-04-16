@@ -1,6 +1,6 @@
 import "./style.css";
 
-import { validatePostalCode } from "postal-code-checker";
+import { validatePostalCode, getAllCountries } from "postal-code-checker";
 
 const formRequirements = {
     passwords: {
@@ -129,3 +129,21 @@ passwordInput.addEventListener("input", validatePassword);
 confirmPasswordInput.addEventListener("input", validateConfirmPassword);
 countryInput.addEventListener("change", validateCountry);
 postcodeInput.addEventListener("input", validatePostCode);
+
+const allCountries = getAllCountries().sort((a, b) =>
+    a.countryName.localeCompare(b.countryName),
+);
+
+const loadCountryOptions = (countriesData) => {
+    countriesData.forEach((country) => {
+        const option = document.createElement("option");
+        option.value = country.countryCode;
+        option.textContent = country.countryName;
+
+        countryInput.appendChild(option);
+    });
+};
+
+loadCountryOptions(allCountries);
+
+validateCountry();
