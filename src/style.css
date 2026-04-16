@@ -86,13 +86,6 @@ fieldset {
                         &:disabled {
                             background-color: var(--c-light-grey);
                         }
-                    }
-
-                    input {
-                        &:user-invalid {
-                            border-color: var(--c-red);
-                            outline-color: var(--c-red);
-                        }
 
                         &:user-valid {
                             border-color: var(--c-green);
@@ -102,6 +95,13 @@ fieldset {
                         &:valid {
                             border-color: var(--c-green);
                             outline-color: var(--c-green);
+                        }
+                    }
+
+                    input {
+                        &:user-invalid {
+                            border-color: var(--c-red);
+                            outline-color: var(--c-red);
                         }
                     }
                 }
