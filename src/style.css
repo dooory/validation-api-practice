@@ -78,16 +78,28 @@ fieldset {
                     input,
                     select {
                         border: 3px solid var(--c-grey);
+                        background-color: var(--c-white);
                         border-radius: 4px;
                         padding: 8px;
                         font-size: 1rem;
 
+                        &:disabled {
+                            background-color: var(--c-light-grey);
+                        }
+                    }
+
+                    input {
                         &:user-invalid {
                             border-color: var(--c-red);
                             outline-color: var(--c-red);
                         }
 
                         &:user-valid {
+                            border-color: var(--c-green);
+                            outline-color: var(--c-green);
+                        }
+
+                        &:valid {
                             border-color: var(--c-green);
                             outline-color: var(--c-green);
                         }
