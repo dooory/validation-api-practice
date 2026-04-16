@@ -1,8 +1,12 @@
 :root {
     --c-blue: hsl(200, 55%, 60%);
+    --c-red: hsl(0, 85%, 50%);
+    --c-green: hsl(115, 85%, 45%);
+
     --c-light-grey: hsl(0, 0%, 85%);
     --c-grey: hsl(0, 0%, 60%);
     --c-black: hsl(0, 0%, 10%);
+    --c-white: hsl(0, 0%, 95%);
 }
 
 html {
