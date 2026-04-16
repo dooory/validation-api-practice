@@ -99,6 +99,8 @@ const validateConfirmPassword = () => {
 const validateCountry = () => {
     const validity = countryInput.validity;
 
+    countryInput.reportValidity();
+
     if (countryInput.value === "placeholder") {
         countryInput.setCustomValidity("Please select a country.");
     } else {
@@ -119,7 +121,6 @@ const validatePostCode = () => {
     if (validity.valueMissing) {
         postcodeInput.setCustomValidity("Please enter a Postcode.");
     } else if (validatePostalCode(countryInput.value, value) === false) {
-        console.log(value, countryInput.value);
         postcodeInput.setCustomValidity("Please enter a valid Postcode.");
     } else {
         postcodeInput.setCustomValidity("");
@@ -148,4 +149,15 @@ const loadCountryOptions = (countriesData) => {
 
 loadCountryOptions(allCountries);
 
-validateCountry();
+const submitButton = document.getElementById("submitButton");
+const signupForm = document.getElementById("signupForm");
+
+submitButton.addEventListener("click", () => {
+    validatePostCode();
+    validateCountry();
+    validateConfirmPassword();
+    validatePassword();
+    validateEmail();
+
+    signupForm.requestSubmit();
+});
