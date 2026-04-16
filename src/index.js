@@ -13,7 +13,7 @@ const validateEmail = (event) => {
     } else if (validity.typeMismatch) {
         input.setCustomValidity("Please enter a valid email.");
     } else {
-        emailInput.setCustomValidity("");
+        input.setCustomValidity("");
     }
 };
 
