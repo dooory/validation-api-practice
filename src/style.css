@@ -6,7 +6,7 @@
     --c-light-grey: hsl(0, 0%, 85%);
     --c-grey: hsl(0, 0%, 60%);
     --c-black: hsl(0, 0%, 10%);
-    --c-white: hsl(0, 0%, 95%);
+    --c-white: hsl(0, 0%, 100%);
 }
 
 html {
