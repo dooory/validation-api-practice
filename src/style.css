@@ -87,7 +87,7 @@ fieldset {
                             background-color: var(--c-light-grey);
                         }
 
-                        &:user-valid {
+                        &:user-valid:not(.notchanged) {
                             border-color: var(--c-green);
                             outline-color: var(--c-green);
                         }
