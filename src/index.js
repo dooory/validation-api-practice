@@ -1,5 +1,7 @@
 import "./style.css";
 
+import { validatePostalCode } from "postal-code-checker";
+
 const formRequirements = {
     passwords: {
         minUppercase: 1,
@@ -105,7 +107,25 @@ const validateCountry = (event) => {
     postcodeInput.disabled = false;
 };
 
+const validatePostCode = (event) => {
+    const input = event.currentTarget;
+    const value = input.value;
+    const validity = input.validity;
+
+    input.reportValidity();
+
+    if (validity.valueMissing) {
+        input.setCustomValidity("Please enter a Postcode.");
+    } else if (validatePostalCode(countryInput.value, value) === false) {
+        console.log(value, countryInput.value);
+        input.setCustomValidity("Please enter a valid Postcode.");
+    } else {
+        input.setCustomValidity("");
+    }
+};
+
 emailInput.addEventListener("input", validateEmail);
 passwordInput.addEventListener("input", validatePassword);
 confirmPasswordInput.addEventListener("input", validateConfirmPassword);
 countryInput.addEventListener("change", validateCountry);
+postcodeInput.addEventListener("input", validatePostCode);
