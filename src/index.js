@@ -11,6 +11,8 @@ const formRequirements = {
 const emailInput = document.getElementById("email");
 const passwordInput = document.getElementById("password");
 const confirmPasswordInput = document.getElementById("confirmPassword");
+const countryInput = document.getElementById("country");
+const postcodeInput = document.getElementById("postcode");
 
 const validateEmail = (event) => {
     const input = event.currentTarget;
@@ -95,6 +97,15 @@ const validateConfirmPassword = (event) => {
     }
 };
 
+const validateCountry = (event) => {
+    const input = event.currentTarget;
+
+    input.reportValidity();
+
+    postcodeInput.disabled = false;
+};
+
 emailInput.addEventListener("input", validateEmail);
 passwordInput.addEventListener("input", validatePassword);
 confirmPasswordInput.addEventListener("input", validateConfirmPassword);
+countryInput.addEventListener("change", validateCountry);
