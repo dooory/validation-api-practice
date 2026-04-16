@@ -16,18 +16,17 @@ const confirmPasswordInput = document.getElementById("confirmPassword");
 const countryInput = document.getElementById("country");
 const postcodeInput = document.getElementById("postcode");
 
-const validateEmail = (event) => {
-    const input = event.currentTarget;
-    input.reportValidity();
+const validateEmail = () => {
+    emailInput.reportValidity();
 
-    const validity = input.validity;
+    const validity = emailInput.validity;
 
     if (validity.valueMissing) {
-        input.setCustomValidity("Please enter an email.");
+        emailInput.setCustomValidity("Please enter an email.");
     } else if (validity.typeMismatch) {
-        input.setCustomValidity("Please enter a valid email.");
+        emailInput.setCustomValidity("Please enter a valid email.");
     } else {
-        input.setCustomValidity("");
+        emailInput.setCustomValidity("");
     }
 };
 
@@ -43,23 +42,22 @@ const minSpecialCharacterRegex = new RegExp(
     `[!-/:-@[-\`{-~]{${formRequirements.passwords.minSpecialChar},}`,
 );
 
-const validatePassword = (event) => {
-    const input = event.currentTarget;
+const validatePassword = () => {
     const validity = passwordInput.validity;
-    const value = input.value;
+    const value = passwordInput.value;
 
-    input.reportValidity();
+    passwordInput.reportValidity();
 
     if (validity.valueMissing) {
-        input.setCustomValidity("Please enter a password.");
+        passwordInput.setCustomValidity("Please enter a password.");
     } else if (validity.tooShort) {
-        input.setCustomValidity(
-            `Passwords are required to be atleast ${input.minLength} characters long (currently ${input.value.length} ${
-                input.value.length > 1 ? "characters" : "character"
+        passwordInput.setCustomValidity(
+            `Passwords are required to be atleast ${passwordInput.minLength} characters long (currently ${passwordInput.value.length} ${
+                passwordInput.value.length > 1 ? "characters" : "character"
             } long)`,
         );
     } else if (minUppercaseRegex.test(value) === false) {
-        input.setCustomValidity(
+        passwordInput.setCustomValidity(
             `Passwords must have atleast ${formRequirements.passwords.minUppercase} uppercase ${
                 formRequirements.passwords.minUppercase > 1 ?
                     "character"
@@ -67,13 +65,13 @@ const validatePassword = (event) => {
             }.`,
         );
     } else if (minNumberRegex.test(value) === false) {
-        input.setCustomValidity(
+        passwordInput.setCustomValidity(
             `Passwords must have atleast ${formRequirements.passwords.minNumbers} ${
                 formRequirements.passwords.minNumbers > 1 ? "numbers" : "number"
             }.`,
         );
     } else if (minSpecialCharacterRegex.test(value) === false) {
-        input.setCustomValidity(
+        passwordInput.setCustomValidity(
             `Passwords must have atleast ${formRequirements.passwords.minSpecialChar} special ${
                 formRequirements.passwords.minSpecialChar > 1 ?
                     "characters"
@@ -81,21 +79,20 @@ const validatePassword = (event) => {
             } (such as ! or # )`,
         );
     } else {
-        input.setCustomValidity("");
+        passwordInput.setCustomValidity("");
     }
 };
 
-const validateConfirmPassword = (event) => {
-    const input = event.currentTarget;
-    const value = input.value;
+const validateConfirmPassword = () => {
+    const value = confirmPasswordInput.value;
     const passwordValue = passwordInput.value;
 
-    input.reportValidity();
+    confirmPasswordInput.reportValidity();
 
     if (value !== passwordValue) {
-        input.setCustomValidity("Passwords do not match.");
+        confirmPasswordInput.setCustomValidity("Passwords do not match.");
     } else {
-        input.setCustomValidity("");
+        confirmPasswordInput.setCustomValidity("");
     }
 };
 
@@ -113,20 +110,19 @@ const validateCountry = () => {
     }
 };
 
-const validatePostCode = (event) => {
-    const input = event.currentTarget;
-    const value = input.value;
-    const validity = input.validity;
+const validatePostCode = () => {
+    const value = postcodeInput.value;
+    const validity = postcodeInput.validity;
 
-    input.reportValidity();
+    postcodeInput.reportValidity();
 
     if (validity.valueMissing) {
-        input.setCustomValidity("Please enter a Postcode.");
+        postcodeInput.setCustomValidity("Please enter a Postcode.");
     } else if (validatePostalCode(countryInput.value, value) === false) {
         console.log(value, countryInput.value);
-        input.setCustomValidity("Please enter a valid Postcode.");
+        postcodeInput.setCustomValidity("Please enter a valid Postcode.");
     } else {
-        input.setCustomValidity("");
+        postcodeInput.setCustomValidity("");
     }
 };
 
